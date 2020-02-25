@@ -23,12 +23,14 @@ export const ShirtAnimation = () => {
     );
 };
 
+// Display empty pixel if color found
 ViroMaterials.createMaterials({
     chromaKeyFilteredVideo : {
         chromaKeyFilteringColor: "#1e973f"
     },
 });
 
+// Set marker
 ViroARTrackingTargets.createTargets({
     logo: {
         source: require('./media/images/shirt.png'),
