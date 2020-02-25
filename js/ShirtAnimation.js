@@ -8,7 +8,7 @@ export const ShirtAnimation = () => {
         <ViroARScene>
             <ViroARImageMarker target={"logo"}>
                 <ViroVideo
-                    source={require("./res/video.mp4")}
+                    source={require("./media/video.mp4")}
                     volume={1}
                     loop={true}
                     scale={[0.1, 0.1, 0.1]}
@@ -24,7 +24,7 @@ export const ShirtAnimation = () => {
 
 ViroARTrackingTargets.createTargets({
     logo: {
-        source: require('./res/shirt.png'),
+        source: require('./media/shirt.png'),
         orientation: "Up",
         physicalWidth: 0.25
     }
