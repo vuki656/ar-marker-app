@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { ViroARSceneNavigator } from 'react-viro';
-import ShirtAnimation from "./js/ShirtAnimation";
+import React from 'react';
 
-export default class App extends Component {
+import { Index } from "./js";
+
+export default class App extends React.Component {
     render() {
         return (
-            <ViroARSceneNavigator initialScene={{ scene: ShirtAnimation }} />
+            <Index />
         )
     }
 }
