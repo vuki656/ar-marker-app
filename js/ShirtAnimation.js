@@ -3,7 +3,7 @@
 import React from 'react';
 import { ViroARImageMarker, ViroARScene, ViroARTrackingTargets, ViroVideo, } from 'react-viro';
 
-export const ARCarDemo = () => {
+export const ShirtAnimation = () => {
     return (
         <ViroARScene>
             <ViroARImageMarker target={"logo"}>
@@ -30,4 +30,4 @@ ViroARTrackingTargets.createTargets({
     }
 });
 
-export default ARCarDemo
+export default ShirtAnimation
