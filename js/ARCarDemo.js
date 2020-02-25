@@ -61,9 +61,9 @@ ViroMaterials.createMaterials({
 
 ViroARTrackingTargets.createTargets({
     logo: {
-        source: require('./res/logo.png'),
+        source: require('./res/shirt.png'),
         orientation: "Up",
-        physicalWidth: 0.165 // real world width in meters
+        physicalWidth: 0.165
     }
 });
 
