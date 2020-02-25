@@ -1,52 +1,41 @@
 'use strict';
-
 import React, { Component } from 'react';
-
 import { StyleSheet } from 'react-native';
-
 import { ViroARScene, ViroConstants, ViroText, } from 'react-viro';
 
 export default class HelloWorldSceneAR extends Component {
-
-  constructor() {
-    super();
-
-    // Set initial state here
-    this.state = {
-      text : "Initializing AR..."
+    state = {
+        text: "Starting AR"
     };
 
-    // bind 'this' to functions
-    this._onInitialized = this._onInitialized.bind(this);
-  }
+    loadScene = (state, reason) => {
+        state === ViroConstants.TRACKING_NORMAL
+            ? this.setState({ text: "Sup man" })
+            : this.setState({ text: "Losing Tracking" });
+    };
 
-  render() {
-    return (
-      <ViroARScene onTrackingUpdated={this._onInitialized} >
-        <ViroText text={this.state.text} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} />
-      </ViroARScene>
-    );
-  }
-
-  _onInitialized(state, reason) {
-    if (state == ViroConstants.TRACKING_NORMAL) {
-      this.setState({
-        text : "Hello World!"
-      });
-    } else if (state == ViroConstants.TRACKING_NONE) {
-      // Handle loss of tracking
+    render() {
+        return (
+            <ViroARScene onTrackingUpdated={this.loadScene}>
+                <ViroText
+                    text={this.state.text}
+                    scale={[.5, .5, .5]}
+                    position={[0, 0, -1]}
+                    style={styles.helloWorldTextStyle}
+                />
+            </ViroARScene>
+        );
     }
-  }
 }
 
-var styles = StyleSheet.create({
-  helloWorldTextStyle: {
-    fontFamily: 'Arial',
-    fontSize: 30,
-    color: '#ffffff',
-    textAlignVertical: 'center',
-    textAlign: 'center',
-  },
+const styles = StyleSheet.create({
+    helloWorldTextStyle: {
+        fontFamily: 'Arial',
+        fontSize: 30,
+        color: '#ffffff',
+        textAlignVertical: 'center',
+        textAlign: 'center',
+    },
 });
 
 module.exports = HelloWorldSceneAR;
