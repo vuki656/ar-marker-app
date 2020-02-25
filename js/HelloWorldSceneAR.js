@@ -15,10 +15,12 @@ export default class HelloWorldSceneAR extends Component {
     };
 
     render() {
+        const { text } = this.state;
+
         return (
             <ViroARScene onTrackingUpdated={this.loadScene}>
                 <ViroText
-                    text={this.state.text}
+                    text={text}
                     scale={[.5, .5, .5]}
                     position={[0, 0, -1]}
                     style={styles.helloWorldTextStyle}
