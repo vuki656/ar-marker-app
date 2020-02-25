@@ -1,14 +1,14 @@
 'use strict';
 
 import React from 'react';
-import { ViroARImageMarker, ViroARScene, ViroARTrackingTargets, ViroVideo, } from 'react-viro';
+import { ViroARImageMarker, ViroARScene, ViroARTrackingTargets, ViroMaterials, ViroVideo } from 'react-viro';
 
 export const ShirtAnimation = () => {
     return (
         <ViroARScene>
             <ViroARImageMarker target={"logo"}>
                 <ViroVideo
-                    source={require("./media/videos/video.mp4")}
+                    source={require("./media/videos/green.mp4")}
                     volume={1}
                     loop={true}
                     scale={[0.1, 0.1, 0.1]}
@@ -16,11 +16,18 @@ export const ShirtAnimation = () => {
                     rotation={[-80, 0, 0]}
                     width={2}
                     height={2}
+                    materials={["chromaKeyFilteredVideo"]}
                 />
             </ViroARImageMarker>
         </ViroARScene>
     );
 };
+
+ViroMaterials.createMaterials({
+    chromaKeyFilteredVideo : {
+        chromaKeyFilteringColor: "#1e973f"
+    },
+});
 
 ViroARTrackingTargets.createTargets({
     logo: {
