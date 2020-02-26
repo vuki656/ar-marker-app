@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import { ViroARImageMarker, ViroARScene, ViroARTrackingTargets, ViroMaterials, ViroVideo } from 'react-viro';
+import { ViroARImageMarker, ViroARScene, ViroARTrackingTargets, ViroMaterials, ViroVideo, } from 'react-viro';
 
 export const ShirtMarker = (props) => {
     const { videoName } = props.arSceneNavigator.viroAppProps
@@ -38,10 +38,10 @@ export const ShirtMarker = (props) => {
     );
 };
 
-// Display empty pixel if specified color found, for transparency
+// Display empty pixel if specified color found, for transparent videos
 ViroMaterials.createMaterials({
     chromaKeyFilteredVideo: {
-        chromaKeyFilteringColor: "#75f90a"
+        chromaKeyFilteringColor: "#5efe0e"
     },
 });
 

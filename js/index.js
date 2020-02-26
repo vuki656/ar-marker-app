@@ -1,6 +1,6 @@
 import React from "react";
 import { ViroARSceneNavigator } from 'react-viro';
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
 import ShirtMarker from "./markers/ShirtMarker";
 
@@ -11,6 +11,10 @@ export const Index = () => {
         if (selectedScreen === "home") {
             return (
                 <View style={styles.wrapper}>
+                    <Image
+                        style={styles.logo}
+                        source={require('./media/phi-logo.png')}
+                    />
                     <TouchableOpacity
                         onPress={() => changeScreen("glitch")}
                         style={styles.button}
@@ -38,37 +42,53 @@ export const Index = () => {
                 </View>
             );
         } else {
-            return <ViroARSceneNavigator
-                initialScene={{ scene: ShirtMarker }}
-                viroAppProps={{ videoName: screen }}
-            />
+            return (
+                <View style={styles.scene}>
+                    <ViroARSceneNavigator
+                        initialScene={{ scene: ShirtMarker }}
+                        viroAppProps={{ videoName: screen }}
+                    />
+                    <View style={styles.arBackButton}>
+                        <TouchableOpacity style={styles.button} onPress={() => changeScreen("home")}>
+                            <Text style={styles.buttonText}>Back</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            )
         }
     };
 
     return (handleRender(screen))
 };
 
-
 const styles = StyleSheet.create({
+    scene: {
+        flex: 1,
+        flexDirection: 'column'
+    },
     wrapper: {
         flex: 1,
         alignItems: "center",
+        flexDirection: 'column',
         justifyContent: "center",
         backgroundColor: "white",
+    },
+    logo: {
+        width: 400,
+        height: 80,
+        marginBottom: 100
     },
     button: {
         padding: 20,
         marginBottom: 20,
-        backgroundColor: "#6DC9F7",
+        backgroundColor: "#0089f8",
         borderRadius: 7,
         color: "white",
+        width: "70%",
 
         // iOS Box Shadow
         shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
+        shadowOffset: { width: 0, height: 3, },
         shadowOpacity: 0.27,
         shadowRadius: 4.65,
 
@@ -76,9 +96,17 @@ const styles = StyleSheet.create({
         elevation: 6,
     },
     buttonText: {
+        textAlign: "center",
         color: "white",
         fontWeight: "bold",
         letterSpacing: 0.9,
+    },
+    arBackButton: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 50,
+        alignItems: 'center'
     }
 });
 
