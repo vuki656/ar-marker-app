@@ -3,20 +3,35 @@
 import React from 'react';
 import { ViroARImageMarker, ViroARScene, ViroARTrackingTargets, ViroMaterials, ViroVideo } from 'react-viro';
 
-export const ShirtMarker = () => {
+export const ShirtMarker = (props) => {
+    const { videoName } = props.arSceneNavigator.viroAppProps
+
+    const getVideoRef = () => {
+        switch (videoName) {
+            case "glitch":
+                return require("../media/videos/glitch.mp4")
+            case "sea":
+                return require("../media/videos/sea.mp4")
+            case "smiley":
+                return require("../media/videos/smiley.mp4")
+            case "sound":
+                return require("../media/videos/sound.mp4")
+        }
+    }
+
     return (
         <ViroARScene>
             <ViroARImageMarker target={"logo"}>
                 <ViroVideo
-                    source={require("../media/videos/butterfly.mp4")}
+                    source={getVideoRef()}
                     volume={1}
                     loop={true}
-                    scale={[0.1, 0.1, 0.1]}
-                    position={[0, 0, 0]}
-                    rotation={[-80, 0, 0]}
+                    scale={[ 0.1, 0.1, 0.1 ]}
+                    position={[ 0, 0, 0 ]}
+                    rotation={[ -80, 0, 0 ]}
                     width={2}
                     height={2}
-                    materials={["chromaKeyFilteredVideo"]}
+                    materials={[ "chromaKeyFilteredVideo" ]}
                 />
             </ViroARImageMarker>
         </ViroARScene>
@@ -25,8 +40,8 @@ export const ShirtMarker = () => {
 
 // Display empty pixel if specified color found, for transparency
 ViroMaterials.createMaterials({
-    chromaKeyFilteredVideo : {
-        chromaKeyFilteringColor: "#13ff07"
+    chromaKeyFilteredVideo: {
+        chromaKeyFilteringColor: "#75f90a"
     },
 });
 
