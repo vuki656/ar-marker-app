@@ -2,7 +2,7 @@ import React from "react";
 import { ViroARSceneNavigator } from 'react-viro';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
-import ShirtMarker from "./markers/ShirtMarker";
+import ShirtMarker from "./js/markers/ShirtMarker";
 
 export const Index = () => {
     const [ screen, changeScreen ] = React.useState("home");

@@ -9,13 +9,13 @@ export const ShirtMarker = (props) => {
     const getVideoRef = () => {
         switch (videoName) {
             case "glitch":
-                return require("../media/videos/glitch.mp4")
+                return require("../../media/videos/glitch.mp4")
             case "sea":
-                return require("../media/videos/sea.mp4")
+                return require("../../media/videos/sea.mp4")
             case "smiley":
-                return require("../media/videos/smiley.mp4")
+                return require("../../media/videos/smiley.mp4")
             case "sound":
-                return require("../media/videos/sound.mp4")
+                return require("../../media/videos/sound.mp4")
         }
     }
 
@@ -48,7 +48,7 @@ ViroMaterials.createMaterials({
 // Set marker
 ViroARTrackingTargets.createTargets({
     logo: {
-        source: require('../media/images/markers/shirt.png'),
+        source: require('../../media/images/markers/shirt.png'),
         orientation: "Up",
         physicalWidth: 0.25
     }
