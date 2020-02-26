@@ -37,7 +37,7 @@ export const ShirtMarker = (props) => {
 // Display empty pixel if specified color found, for transparent videos
 ViroMaterials.createMaterials({
     chromaKeyFilteredVideo: {
-        chromaKeyFilteringColor: "#5efe0e"
+        chromaKeyFilteringColor: "#a0f74e"
     },
 });
 
