@@ -6,7 +6,7 @@ import ShirtMarker from "./js/markers/ShirtMarker";
 import { Button } from "./components/buttons/Button"
 import { ArSceneButton } from "./components/buttons/ARSceneButton"
 
-export const Index = () => {
+export const Home = () => {
     const [ screen, changeScreen ] = React.useState("home");
 
     const handleRender = (selectedScreen) => {
