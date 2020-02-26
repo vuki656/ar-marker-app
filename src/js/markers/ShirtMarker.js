@@ -10,10 +10,6 @@ export const ShirtMarker = (props) => {
         switch (videoName) {
             case "glitch":
                 return require("../../media/videos/glitch.mp4")
-            case "sea":
-                return require("../../media/videos/sea.mp4")
-            case "smiley":
-                return require("../../media/videos/smiley.mp4")
             case "sound":
                 return require("../../media/videos/sound.mp4")
         }
