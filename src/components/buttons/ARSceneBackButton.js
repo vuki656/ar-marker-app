@@ -4,7 +4,7 @@ import { View } from "react-native"
 import { Button } from "./Button"
 import { Wrappers } from "../../styles/"
 
-export const ArSceneButton = (props) => {
+export const ARSceneBackButton = (props) => {
     const { handlePress, buttonText } = props
 
     return (

@@ -4,7 +4,7 @@ import { View } from "react-native"
 
 import { Wrappers } from "../styles/"
 import { MigosMarker } from "../js/markers/MigosMarker"
-import { ArSceneButton } from "../components/buttons/ARSceneButton"
+import { ARSceneBackButton } from "../components/buttons/ARSceneBackButton"
 
 export const ARSceneScreen = (props) => {
     const { changeScreen } = props
@@ -15,7 +15,7 @@ export const ARSceneScreen = (props) => {
                 initialScene={{ scene: MigosMarker }}
                 viroAppProps={{}}
             />
-            <ArSceneButton
+            <ARSceneBackButton
                 handlePress={() => changeScreen("home")}
                 buttonText="Back"
             />
