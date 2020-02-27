@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Home } from "./src/Home";
+import { Index } from "./src";
 
 export default class App extends React.Component {
     render() {
         return (
-            <Home />
+            <Index />
         )
     }
 }
