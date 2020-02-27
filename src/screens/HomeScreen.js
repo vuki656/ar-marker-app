@@ -14,11 +14,11 @@ export const HomeScreen = (props) => {
                 style={Global.logo}
                 source={require('../media/phi-logo.png')}
             />
-            {[ "glitch", "sound" ].map(buttonText =>
+            {[ "glitch", "sound" ].map(text =>
                 <Button
-                    handlePress={() => changeScreen(buttonText)}
-                    buttonText={makeFirstLetterUppercase(buttonText)}
-                    key={buttonText}
+                    handlePress={() => changeScreen("arScene")}
+                    buttonText={makeFirstLetterUppercase(text)}
+                    key={text}
                 />,
             )}
         </View>

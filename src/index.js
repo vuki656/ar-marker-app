@@ -14,4 +14,3 @@ export const Index = () => {
 
     return (handleRender(screen))
 }
-
