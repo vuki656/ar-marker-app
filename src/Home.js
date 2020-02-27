@@ -2,9 +2,9 @@ import React from "react";
 import { ViroARSceneNavigator } from 'react-viro';
 import { Image, StyleSheet, View } from "react-native"
 
-import ShirtMarker from "./js/markers/ShirtMarker";
 import { Button } from "./components/buttons/Button"
 import { ArSceneButton } from "./components/buttons/ARSceneButton"
+import { MigosMarker } from "./js/markers/MigosMarker"
 
 export const Home = () => {
     const [ screen, changeScreen ] = React.useState("home");
@@ -31,8 +31,8 @@ export const Home = () => {
             return (
                 <View style={styles.scene}>
                     <ViroARSceneNavigator
-                        initialScene={{ scene: ShirtMarker }}
-                        viroAppProps={{ videoName: screen }}
+                        initialScene={{ scene: MigosMarker }}
+                        // viroAppProps={{ videoName: screen }}
                     />
                     <ArSceneButton
                         handlePress={() => changeScreen("home")}
@@ -49,7 +49,7 @@ export const Home = () => {
 const styles = StyleSheet.create({
     scene: {
         flex: 1,
-        flexDirection: 'column'
+        flexDirection: 'column',
     },
     wrapper: {
         flex: 1,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     logo: {
         width: 400,
         height: 80,
-        marginBottom: 100
+        marginBottom: 100,
     },
 });
 

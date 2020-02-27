@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import { ViroARImageMarker, ViroARScene, ViroARTrackingTargets, ViroMaterials, ViroVideo, } from 'react-viro';
+import { ViroARImageMarker, ViroARScene, ViroARTrackingTargets, ViroMaterials, ViroVideo } from 'react-viro';
 
 export const ShirtMarker = (props) => {
     const { videoName } = props.arSceneNavigator.viroAppProps
@@ -12,6 +12,7 @@ export const ShirtMarker = (props) => {
                 return require("../../media/videos/glitch.mp4")
             case "sound":
                 return require("../../media/videos/sound.mp4")
+            case "geometry":
         }
     }
 
@@ -22,12 +23,12 @@ export const ShirtMarker = (props) => {
                     source={getVideoRef()}
                     volume={1}
                     loop={true}
-                    scale={[ 0.1, 0.1, 0.1 ]}
+                    scale={[ 0.5, 0.5, 0.5 ]}
                     position={[ 0, 0, 0 ]}
                     rotation={[ -80, 0, 0 ]}
                     width={2}
                     height={2}
-                    materials={[ "chromaKeyFilteredVideo" ]}
+                    materials={[ "filterBackground" ]}
                 />
             </ViroARImageMarker>
         </ViroARScene>
@@ -36,8 +37,8 @@ export const ShirtMarker = (props) => {
 
 // Display empty pixel if specified color found, for transparent videos
 ViroMaterials.createMaterials({
-    chromaKeyFilteredVideo: {
-        chromaKeyFilteringColor: "#a0f74e"
+    filterBackground: {
+        chromaKeyFilteringColor: "#a0f74e",
     },
 });
 
@@ -46,8 +47,8 @@ ViroARTrackingTargets.createTargets({
     logo: {
         source: require('../../media/images/markers/shirt.png'),
         orientation: "Up",
-        physicalWidth: 0.25
-    }
+        physicalWidth: 0.25,
+    },
 });
 
 export default ShirtMarker
