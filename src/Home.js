@@ -1,10 +1,12 @@
 import React from "react";
 import { ViroARSceneNavigator } from 'react-viro';
-import { Image, StyleSheet, View } from "react-native"
+import { Image, View } from "react-native"
 
 import { Button } from "./components/buttons/Button"
 import { ArSceneButton } from "./components/buttons/ARSceneButton"
 import { MigosMarker } from "./js/markers/MigosMarker"
+import { makeFirstLetterUppercase } from "./helpers/global"
+import { Global, Pages, Wrappers } from "./styles/"
 
 export const Home = () => {
     const [ screen, changeScreen ] = React.useState("home");
@@ -12,27 +14,26 @@ export const Home = () => {
     const handleRender = (selectedScreen) => {
         if (selectedScreen === "home") {
             return (
-                <View style={styles.wrapper}>
+                <View style={Pages.home}>
                     <Image
-                        style={styles.logo}
+                        style={Global.logo}
                         source={require('./media/phi-logo.png')}
                     />
-                    <Button
-                        handlePress={() => changeScreen("glitch")}
-                        buttonText="Video Glitch"
-                    />
-                    <Button
-                        handlePress={() => changeScreen("sound")}
-                        buttonText="Sound Waves"
-                    />
+                    {[ "glitch", "sound" ].map(buttonText =>
+                        <Button
+                            handlePress={() => changeScreen(buttonText)}
+                            buttonText={makeFirstLetterUppercase(buttonText)}
+                            key={buttonText}
+                        />,
+                    )}
                 </View>
             );
         } else {
             return (
-                <View style={styles.scene}>
+                <View style={Wrappers.scene}>
                     <ViroARSceneNavigator
                         initialScene={{ scene: MigosMarker }}
-                        // viroAppProps={{ videoName: screen }}
+                        viroAppProps={{}}
                     />
                     <ArSceneButton
                         handlePress={() => changeScreen("home")}
@@ -45,23 +46,4 @@ export const Home = () => {
 
     return (handleRender(screen))
 };
-
-const styles = StyleSheet.create({
-    scene: {
-        flex: 1,
-        flexDirection: 'column',
-    },
-    wrapper: {
-        flex: 1,
-        alignItems: "center",
-        flexDirection: 'column',
-        justifyContent: "center",
-        backgroundColor: "white",
-    },
-    logo: {
-        width: 400,
-        height: 80,
-        marginBottom: 100,
-    },
-});
 
