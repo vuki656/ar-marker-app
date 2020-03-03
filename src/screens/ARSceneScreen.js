@@ -3,17 +3,17 @@ import { ViroARSceneNavigator } from 'react-viro';
 import { View } from "react-native"
 
 import { Wrappers } from "../styles/"
-import { MigosMarker } from "../js/markers/MigosMarker"
 import { ARSceneBackButton } from "../components/buttons/ARSceneBackButton"
+import { ShirtMarker } from "../js/markers/ShirtMarker"
 
 export const ARSceneScreen = (props) => {
-    const { changeScreen } = props
+    const { changeScreen, selectedScreen } = props
 
     return (
         <View style={Wrappers.scene}>
             <ViroARSceneNavigator
-                initialScene={{ scene: MigosMarker }}
-                viroAppProps={{}}
+                initialScene={{ scene: ShirtMarker }}
+                viroAppProps={{ selectedScreen: selectedScreen }}
             />
             <ARSceneBackButton
                 handlePress={() => changeScreen("home")}

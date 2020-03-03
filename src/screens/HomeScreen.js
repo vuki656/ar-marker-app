@@ -14,9 +14,9 @@ export const HomeScreen = (props) => {
                 style={Global.logo}
                 source={require('../media/phi-logo.png')}
             />
-            {[ "glitch", "sound" ].map(text =>
+            {[ "glitch", "sound", "butterfly", "fastBC", "slowBC" ].map(text =>
                 <Button
-                    handlePress={() => changeScreen("arScene")}
+                    handlePress={() => changeScreen(text)}
                     buttonText={makeFirstLetterUppercase(text)}
                     key={text}
                 />,
